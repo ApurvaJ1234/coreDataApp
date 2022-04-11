@@ -9,9 +9,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet var tableViewCore: UIView!
+    @IBOutlet weak var tableViewcore: UITableView!
     
-    @IBAction func addNameCore(_ sender: UIBarButtonItem) {
+    
+    @IBAction func addName(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "New Name",
                                       message: "Add a new name",
                                       preferredStyle: .alert)
@@ -26,7 +27,7 @@ class ViewController: UIViewController {
           }
           
           self.names.append(nameToSave)
-          self.tableView.reloadData()
+          self.tableViewcore.reloadInputViews()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -47,8 +48,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         title = "New List"
-        tableView.register(UITableViewCell.self,
-                             forCellReuseIdentifier: "Cell")
+        self.tableViewcore.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     

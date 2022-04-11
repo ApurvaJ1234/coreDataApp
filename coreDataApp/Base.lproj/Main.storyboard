@@ -41,7 +41,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableViewCore" destination="8bC-Xf-vdC" id="Vt7-66-FmH"/>
+                        <outlet property="tableViewcore" destination="dbx-ZC-IRd" id="7fv-q3-ME8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
