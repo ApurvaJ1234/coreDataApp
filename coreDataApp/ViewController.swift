@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBAction func addName(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "New Name",
-                                      message: "Add a new name",
+                                      message: "Add your name",
                                       preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save",
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
           }
           
           self.names.append(nameToSave)
-          self.tableViewcore.reloadInputViews()
+          self.tableViewcore.reloadData()
         }
         
         let cancelAction = UIAlertAction(title: "Cancel",
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        title = "New List"
+        title = "Your Name List"
         self.tableViewcore.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
@@ -67,7 +67,7 @@ extension ViewController: UITableViewDataSource {
                  -> UITableViewCell {
 
     let cell =
-      tableView.dequeueReusableCell(withIdentifier: "Cell",
+      tableViewcore.dequeueReusableCell(withIdentifier: "Cell",
                                     for: indexPath)
     cell.textLabel?.text = names[indexPath.row]
     return cell
