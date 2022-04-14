@@ -102,7 +102,7 @@ class ViewController: UIViewController {
       
       //2
       let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "Person")
+        NSFetchRequest<Person>(entityName: "Person")
       
       //3
       do {
