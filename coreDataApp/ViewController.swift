@@ -56,7 +56,7 @@ class ViewController: UIViewController {
       
       // 2
       let entity =
-        NSEntityDescription.entity(forEntityName: "NamesList",
+        NSEntityDescription.entity(forEntityName: "Person",
                                    in: managedContext)!
       
       let person = NSManagedObject(entity: entity,
@@ -74,6 +74,7 @@ class ViewController: UIViewController {
       }
     }
 
+
     
     var people: [NSManagedObject] = []
 
@@ -85,6 +86,8 @@ class ViewController: UIViewController {
         title = "Your Name List"
         self.tableViewcore.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
+ 
+    
     override func viewWillAppear(_ animated: Bool) {
       super.viewWillAppear(animated)
       
@@ -93,15 +96,13 @@ class ViewController: UIViewController {
         UIApplication.shared.delegate as? AppDelegate else {
           return
       }
-        
-        
-
       
-      let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+      let managedContext =
+        appDelegate.persistentContainer.viewContext
       
       //2
       let fetchRequest =
-        NSFetchRequest<NSManagedObject>(entityName: "NamesList")
+        NSFetchRequest<NSManagedObject>(entityName: "Person")
       
       //3
       do {
@@ -109,13 +110,10 @@ class ViewController: UIViewController {
       } catch let error as NSError {
         print("Could not fetch. \(error), \(error.userInfo)")
       }
-    }
+    }}
 
 
     
-
-}
-// MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView,
                  numberOfRowsInSection section: Int) -> Int {
@@ -135,3 +133,4 @@ extension ViewController: UITableViewDataSource {
     return cell
   }
 }
+
